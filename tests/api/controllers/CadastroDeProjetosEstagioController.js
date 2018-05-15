@@ -1,39 +1,34 @@
 /**
- * CustomerController
+ * CadastroDeProjetosEstagioController
  *
- * @description :: Server-side logic for managing customer
+ * @description :: Server-side logic for managing cadastroDeProjetosEstagio
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
 module.exports = {
 
     /**
-     * `CustomerController.index()`
+     * `CadastroDeProjetosEstagioController.index()`
      * return view only
      */
     index: function(req, res) {
-        return res.view('customer/index', {
+        return res.view('cadastroDeProjetosEstagio/index', {
             footer: [
-                '/js/modules/customer/index.js'
+                '/js/modules/cadastroDeProjetosEstagio/index.js'
             ]
         });
     },
 
     /**
-     * `CustomerController.query()`
+     * `CadastroDeProjetosEstagioController.query()`
      * This is jquery datatables format query
      * @see https://datatables.net/examples/data_sources/server_side.html
      */
     query: function(req, res) {
         var cols = [
             'id', 
-            'name', 
-            'address', 
-            'post', 
-            'phone', 
-            'province', 
-            'city', 
-            'region', 
+            'nome', 
+            'Escola', 
         ]
         var all = req.allParams();
         var search = req.param('search')
@@ -77,16 +72,16 @@ module.exports = {
             queryCond = JSON.parse(JSON.stringify(cond))
             queryCond.limit = limit
             queryCond.skip = skip
-            query = Customer.find(queryCond)
+            query = CadastroDeProjetosEstagio.find(queryCond)
 
         } else {
-            query = Customer.find({
+            query = CadastroDeProjetosEstagio.find({
                 limit: limit,
                 skip: skip,
             })
         }
 
-        Customer.count(cond).exec(function(error, count) {
+        CadastroDeProjetosEstagio.count(cond).exec(function(error, count) {
             query.sort(sort).then(function(data) {
                 //jquery datatables format
                 return res.json({
@@ -103,7 +98,7 @@ module.exports = {
 
 
     /**
-     * `CustomerController.update()`
+     * `CadastroDeProjetosEstagioController.update()`
      * update modle api
      */
     update: function(req, res) {
@@ -111,21 +106,16 @@ module.exports = {
                 success: false,
                 msg: 'Server error'
             }
-        //int primary id;
+        int primary id;
         var pkid = parseInt(req.param('id'))
         var model = {
-            name: req.param('name'),
-            address: req.param('address'),
-            post: req.param('post'),
-            phone: req.param('phone'),
-            province: req.param('province'),
-            city: req.param('city'),
-            region: req.param('region'),
+            nome: req.param('nome'),
+            Escola: req.param('Escola'),
             
         }
         //TODO: model validation
         if (pkid && !isNaN(pkid)) {
-            Customer.update({
+            CadastroDeProjetosEstagio.update({
                 id: pkid
             }, model).exec(function(err, newmodel) {
                 if (!err) {
@@ -137,7 +127,7 @@ module.exports = {
                 return res.json(rt);
             })
         } else {
-            Customer.create(model).exec(function(err, newmodel) {
+            CadastroDeProjetosEstagio.create(model).exec(function(err, newmodel) {
                 if (!err) {
                     rt.success = true
                     rt.msg = ''
@@ -152,7 +142,7 @@ module.exports = {
 
 
     /**
-     * `CustomerController.remove()`
+     * `CadastroDeProjetosEstagioController.remove()`
      * remove model api
      */
     remove: function(req, res) {
@@ -160,10 +150,10 @@ module.exports = {
                 success: false,
                 msg: 'Server error'
             }
-        //int primary id
+        int primary id;
         var pkid = parseInt(req.param('id'))
         if (pkid && !isNaN(pkid)) {
-            Customer.destroy({
+            CadastroDeProjetosEstagio.destroy({
                 id: pkid
             }).exec(function(err) {
                 if (!err) {
