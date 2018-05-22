@@ -13,11 +13,6 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    id: { type: '=interger',
-		primaryKey: true,
-		autoincrement: true,
-		unique: true },
-
     nome: { type: 'String' },
 
     Escola: { type: 'String' }

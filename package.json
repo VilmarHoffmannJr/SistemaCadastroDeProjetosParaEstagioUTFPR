@@ -9,5 +9,11 @@
     "grunt-contrib-clean": "~0.6.0",
     "grunt-shell": "~1.1.2",
     "grunt-file-compare": "~1.0.5"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "jsonwebtoken": "^8.2.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }

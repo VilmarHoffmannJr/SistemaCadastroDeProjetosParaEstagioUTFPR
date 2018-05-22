@@ -106,7 +106,7 @@ module.exports = {
                 success: false,
                 msg: 'Server error'
             }
-        int primary id;
+        //int primary id;
         var pkid = parseInt(req.param('id'))
         var model = {
             nome: req.param('nome'),
@@ -150,7 +150,7 @@ module.exports = {
                 success: false,
                 msg: 'Server error'
             }
-        int primary id;
+        //int primary id;
         var pkid = parseInt(req.param('id'))
         if (pkid && !isNaN(pkid)) {
             CadastroDeProjetosEstagio.destroy({

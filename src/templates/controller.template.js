@@ -149,7 +149,7 @@ module.exports = {
                 success: false,
                 msg: 'Server error'
             }
-        //int primary id
+        int primary id
         var pkid = parseInt(req.param('<%=primary.name%>'))
         if (pkid && !isNaN(pkid)) {
             <%= service %>.destroy({
